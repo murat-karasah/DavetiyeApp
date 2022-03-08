@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DavetiyeUI.Models.DavetiyeDto>
+
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>Liste</h1>
+
+<p>
+    <a asp-action="DavetiyeEkle">Davetiye Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KatilimciAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KatilimciSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KatilimciTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.katılım)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KatilimciAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KatilimciSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KatilimciTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.katılım)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.Id}) |
+                @Html.ActionLink("Details", "Details", new { item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
