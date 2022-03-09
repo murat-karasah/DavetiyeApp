@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<DavetiyeUI.Models.DavetiyeDto>
 
 @{
-    ViewData["Title"] = "Liste";
+    ViewData["Title"] = "FalseListe";
 }
 
-<h1>Liste</h1>
+<h1>FalseListe</h1>
 
 <p>
-    <a asp-action="DavetiyeEkle">Davetiye Ekle</a>
-    <a asp-action="FalseListe" asp-route-id="false">Katılmayanları Listele</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -56,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.katılım)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { item.Id}) |
-                @Html.ActionLink("Details", "Details", new { item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { item.Id })
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

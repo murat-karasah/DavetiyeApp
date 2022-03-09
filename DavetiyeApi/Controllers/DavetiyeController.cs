@@ -25,7 +25,15 @@ namespace DavetiyeApi.Controllers
             var davetiyes = davetiyeService.GetAll();
             return Ok(davetiyes);
         }
-        
+        [HttpGet]
+        [Route("action")]
+        public IActionResult GetAllFiltre(bool v)
+        {
+            var davetiyes = davetiyeService.GetAllFiltre(v);
+            return Ok(davetiyes);
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

@@ -9,6 +9,8 @@ namespace DavetiyeDataAccess.Abstract
 {
   public  interface IDavetiyeRepository
     {
+        List<Davetiye> GetAllFiltre(bool v);
+
         List<Davetiye> GetAll();
         Davetiye GetById(int id);
         Davetiye CreateD(Davetiye davetiye);

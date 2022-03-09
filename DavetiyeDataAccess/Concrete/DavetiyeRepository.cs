@@ -39,6 +39,15 @@ namespace DavetiyeDataAccess.Concrete
             }
         }
 
+        public List<Davetiye> GetAllFiltre(bool v)
+        {
+            using (var db = new DavetiyeDbContext())
+            {
+                return db.Davetiyes.Where(x=>x.katılım==v).ToList();
+
+            }
+        }
+
         public Davetiye GetById(int id)
         {
             using (var db = new DavetiyeDbContext())

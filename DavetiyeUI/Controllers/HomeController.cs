@@ -62,6 +62,26 @@ namespace DavetiyeUI.Controllers
             return View();
         }
 
+        public IActionResult FalseListe(bool v)
+        {
+            List<DavetiyeDto> dList = new List<DavetiyeDto>();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44390/api/");
+            var responseTalk = client.GetAsync("Davetiye/action?v="+v);
+            var result = responseTalk.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsStringAsync();
+                var davetiyes = readTask.Result;
+                dList = JsonConvert.DeserializeObject<List<DavetiyeDto>>(davetiyes);
+            }
+            if (dList != null)
+            {
+                return View(dList);
+            }
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

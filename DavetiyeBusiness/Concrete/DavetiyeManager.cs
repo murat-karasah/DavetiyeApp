@@ -32,6 +32,11 @@ namespace DavetiyeBusiness.Concrete
             return rep.GetAll();
         }
 
+        public List<Davetiye> GetAllFiltre(bool v)
+        {
+            return rep.GetAllFiltre(v);
+        }
+
         public Davetiye GetById(int id)
         {
             return rep.GetById(id);
